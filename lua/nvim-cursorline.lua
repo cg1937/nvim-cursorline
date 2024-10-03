@@ -47,7 +47,7 @@ local function matchadd()
   then
     return
   end
-  local pattern = [[\<]] .. cursorword .. [[\>]]
+  local pattern = [[\<]] .. fn.escape(cursorword, [[~"\\.^$[]*]]) .. [[\>]]
   w.cursorword_id = fn.matchadd("CursorWord", pattern, -1)
 end
 
